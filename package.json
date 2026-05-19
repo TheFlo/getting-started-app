@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon -L src/index.js"
+    "dev": "nodemon -L src/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "express": "^5.2.1",
@@ -14,6 +16,7 @@
     "wait-port": "^1.1.0"
   },
   "devDependencies": {
+    "jest": "^30.4.2",
     "nodemon": "^3.1.9"
   },
   "overrides": {
