@@ -1,6 +1,6 @@
 services:
   app:
-    image: getting-started
+    image: ghcr.io/theflo/getting-started:latest
     restart: always #unless-stopped
     container_name: app
     build:
