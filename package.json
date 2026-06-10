@@ -5,9 +5,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon -L src/index.js",
-    "test": "jest ./spec",
-    "test:verbose": "jest --verbose ./spec",
-    "test:watch": "jest --watch ./spec",
+    "test": "npx jest --coverage ./spec",
+    "test:verbose": "npx jest --verbose ./spec",
+    "test:watch": "npx jest --watch ./spec",
     "test:e2e": "npx playwright test"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "@playwright/test": "^1.60.0",
     "@types/node": "^25.9.1",
     "jest": "^30.4.2",
+    "jest-junit": "^17.0.0",
     "nodemon": "^3.1.9"
   },
   "overrides": {
