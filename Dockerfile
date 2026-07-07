@@ -7,5 +7,5 @@ RUN npm install --omit=dev
 
 COPY . .
 
-CMD ["node", "src/index.js"]
+CMD ["node", "--require", "./src/tracing.js", "src/index.js"]
 EXPOSE 3000

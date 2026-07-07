@@ -16,6 +16,8 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
+    networks:
+      - app-net
 
   mysql: # nom du service = alias réseau du conteneur
     image: mysql:8.0
@@ -32,6 +34,12 @@ services:
       timeout: 5s
       retries: 5
       start_period: 15s
+    networks:
+      - app-net
 
 volumes:
   todo-mysql-data:
+
+networks:
+  app-net:
+    name: app-net
