@@ -21,7 +21,7 @@ jobs:
           username: ${{ secrets.VM_USERNAME }}
           password: ${{ secrets.VM_PASSWORD }}
           port: ${{ secrets.VM_PORT || 22 }}
-          source: "compose.yaml"
+          source: "compose.yaml,compose.monitoring.yaml,compose.proxy.yaml,monitoring/**,nginx/**"
           target: "/home/${{ secrets.VM_USERNAME }}/"
 
       - name: execute docker compose
@@ -32,5 +32,9 @@ jobs:
           password: ${{ secrets.VM_PASSWORD }}
           port: ${{ secrets.VM_PORT || 22 }}
           script: |
-            docker compose pull
-            docker compose up -d --remove-orphans
+            docker compose -f compose.yaml pull
+            docker compose -f compose.yaml up -d --remove-orphans
+            docker compose -f compose.monitoring.yaml pull
+            docker compose -f compose.monitoring.yaml up -d
+            docker compose -f compose.proxy.yaml pull
+            docker compose -f compose.proxy.yaml up -d

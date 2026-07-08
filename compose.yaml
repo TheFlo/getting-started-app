@@ -6,8 +6,6 @@ services:
     build:
       context: . # dossier courant contenant le fichier Dockerfile
       dockerfile: Dockerfile # chemin du fichier Dockerfile
-    ports:
-      - 80:3000
     environment:
       MYSQL_HOST: mysql # nom du service mysql
       MYSQL_USER: root
